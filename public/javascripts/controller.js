@@ -101,7 +101,6 @@ app.controller('PostsController', ['$scope','$http','$location',function($scope,
 	};
 	$scope.GetPosts();
 	$scope.saveid=function(event) {
-		console.log(event.target.id);
 		localStorage.setItem("dishid", event.target.id);
 	};
 	$scope.EditDish=function() {
@@ -115,7 +114,13 @@ app.controller('PostsController', ['$scope','$http','$location',function($scope,
 	        data: {name: $scope.EditDishName, price: $scope.EditDishPrice}
 	    })
 	    .then(function(response) {
-	    	$scope.EditDishName="";
+			for(let i=0;i<$scope.Posts[0].dishes.length;i++) {
+				if($scope.Posts[0].dishes[i]._id==dishid) {
+					$scope.Posts[0].dishes[i].name=$scope.EditDishName;
+					$scope.Posts[0].dishes[i].price=$scope.EditDishPrice;
+				}
+			}
+			$scope.EditDishName="";
 			$scope.EditDishPrice="";
 			$scope.EditDishForm.$setPristine();
 			console.log(response.data);
@@ -136,6 +141,7 @@ app.controller('PostsController', ['$scope','$http','$location',function($scope,
 	    .then(function(response) {
 	    	localStorage.removeItem("username");
 	    	localStorage.removeItem("id");
+	    	localStorage.removeItem("dishid");
 	    	$location.path("/");
 	    },
 	    function(response) {
