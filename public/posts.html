@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog</title>
+</head>
+<body ng-controller="PostsController">
+	<div class="container posts-page" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-md-9 col-md-offset-1 posts-section" ng-repeat="Post in Posts">
+				<h2>{{Post.restaurantdetails.name}}</h2>
+				<h2>Location</h2>
+				<hr>
+				<div id="map" style="width:100%;height:500px"></div>
+				<h3>Dishes Available in Our Restuarant</h3>
+				<div class="cards col-md-5" ng-repeat="dish in Post.dishes">
+					<h4 class="card-name">{{dish.name}} <span>{{dish.price | currency : " INR " }}</span></h4>
+					<div class='card-footer'>
+					<button id="{{dish._id}}" class='btn btn-danger removecardusers' data-toggle="modal" ng-click="saveid($event);" data-target="#loginModal">Edit</button></div>
+				</div>
+			</div>
+			<div class="modal fade" id="loginModal" role="dialog">
+		    	<div class="modal-dialog">
+			      	<div class="modal-content">
+			        	<div class="modal-header">
+				          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				          	<h4 class="modal-title">Edit Dish</h4>
+			        	</div>
+				        <div class="modal-body">
+				        	<form name="EditDishForm">
+						        <div class="form-group">
+									<label>Name: </label>
+							    	<input type="text" ng-model="EditDishName" class="form-control" name="name" required>
+							    	<span ng-show="EditDishForm.name.$error.required && !EditDishForm.name.$pristine" class="help-block">Name is required</span>
+						  		</div>
+						  		<div class="form-group">
+									<label>Price: </label>
+							    	<input type="number" ng-model="EditDishPrice" class="form-control" name="price" required>
+							    	<span ng-show="EditDishForm.price.$error.required && !EditDishForm.price.$pristine" class="help-block">Price is required</span>
+						  		</div>
+						    	<button id="submitbutton" type="submit" ng-click="EditDish();" class="btn btn-default" ng-disabled="EditDishForm.$invalid">
+						    	Edit Dish
+						    	</button>
+							</form>
+				        </div>
+			      	</div>
+		    	</div>
+		  	</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html ng-app="MyApp">
+	<title>Blog Posts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<body ng-controller="AddDishController">
+		<div class="container">
+			<form name="UploadDishForm">
+				<div class="form-group">
+					<label>Name: </label>
+				    <input type="text" ng-model="DishName" class="form-control" name="name" required>
+				    <span ng-show="UploadDishForm.name.$error.required && !UploadDishForm.name.$pristine" class="help-block">Name is required</span>
+			  	</div>
+			  	<div class="form-group">
+					<label>Price: </label>
+				    <input type="number" ng-model="DishPrice" class="form-control" name="price" required>
+				    <span ng-show="UploadDishForm.price.$error.required && !UploadDishForm.price.$pristine" class="help-block">Price is required</span>
+			  	</div>
+			    <button id="submitbutton" type="submit" ng-click="AddDish();" class="btn btn-default" ng-disabled="UploadDishForm.$invalid">Upload Dish
+			    </button>
+			</form>
+		</div>
+	</body>
+</html>

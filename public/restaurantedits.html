@@ -1,0 +1,32 @@
+<html ng-app="MyApp">
+	<title>Blog Posts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<body ng-controller="EditPostsController">
+		<div class="container">
+			<form name="UploadPostsForm">
+				<div class="form-group">
+					<label>Name: </label>
+				    <input type="text" ng-model="RestaurantName" class="form-control" name="name" required>
+				    <span ng-show="UploadPostsForm.name.$error.required && !UploadPostsForm.name.$pristine" class="help-block">Name is required</span>
+			  	</div>
+			  	<div class="form-group">
+					<label>Address: </label>
+				    <input type="text" ng-model="Restaurantaddress" class="form-control" name="address" required>
+				    <span ng-show="UploadPostsForm.address.$error.required && !UploadPostsForm.address.$pristine" class="help-block">Address is required</span>
+			  	</div>
+			  	<div class="form-group">
+					<label>Latitude position: </label>
+				    <input type="number" ng-model="RestaurantLatitude" class="form-control" name="lat" required>
+				    <span ng-show="UploadPostsForm.lat.$error.required && !UploadPostsForm.lat.$pristine" class="help-block">Latitude position is required</span>
+			  	</div>
+			  	<div class="form-group">
+					<label>Longtitude position: </label>
+				    <input type="number" ng-model="RestaurantLongtitude" class="form-control" name="lng" required>
+				    <span ng-show="UploadPostsForm.lng.$error.required && !UploadPostsForm.lng.$pristine" class="help-block">Longtitude position is required</span>
+			  	</div>
+			    <button id="submitbutton" type="submit" ng-click="EditPosts();" class="btn btn-default" ng-disabled="UploadPostsForm.$invalid">Update Details
+			    </button>
+			</form>
+		</div>
+	</body>
+</html>

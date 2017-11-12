@@ -1,0 +1,5 @@
+{"restaurantdetails": {"name":"Aryaas Hotel","address":"Arani TamilNadu","latlng":{"lat":12.697644,"lng":79.285041}} }
+
+{"name":"Masala Dosa","price": 65}
+
+{"restaurantdetails": {"name":"Aryaas Hotel","address":"Arani TamilNadu"} }

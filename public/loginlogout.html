@@ -1,0 +1,60 @@
+<html ng-app="MyApp">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Hotel Administration</title>
+	</head>
+	<body ng-controller="LoginandLogoutController">
+		<div class="container login-page">
+			<ul class="nav nav-tabs col-md-8 col-md-offset-2">
+			    <li class="active"><a data-toggle="tab" href="#login">Login</a></li>
+			    <li><a data-toggle="tab" href="#signup">SignUp</a></li>
+			</ul>
+			<div class="tab-content">
+			    <div id="login" class="tab-pane fade in active">
+			    	<div class="row">
+				    	<div class="col-md-8 col-md-offset-2 login-section">
+							<h2>LogIn</h2>
+							<form class="login-form" name="LoginForm" novalidate>
+								<div class="form-group">
+									<label>Enter your Email Id</label>
+								    <input type="text" ng-model="EmailID" class="form-control" name="mailid" required>
+								    <span ng-show="LoginForm.mailid.$error.required && !LoginForm.mailid.$pristine" class="help-block">Name is required</span>
+							  	</div>
+							  	<div class="form-group">
+							  		<label>Enter your password</label>
+								    <input type="password" ng-model="Password" class="form-control" name="password" required>
+								    <span ng-show="LoginForm.password.$error.required && !LoginForm.password.$pristine" class="help-block">
+								    	Password is required
+								    </span>
+							  	</div>
+							  	<button type="submit" ng-click="Login();" class="btn btn-default" ng-disabled="LoginForm.$invalid">Sign In</button>
+							</form>
+						</div>
+			      	</div>
+			    </div>
+			    <div id="signup" class="tab-pane fade">
+			    	<div class="row">
+				    	<div class="col-md-8 col-md-offset-2 signup-section">
+							<h2>SignUp</h2>
+							<form class="signup-form" name="SignupForm" novalidate>
+								<div class="form-group">
+									<label>Enter your user name</label>
+								    <input type="text" ng-model="SignupEmailID" class="form-control" name="username" required>
+								    <span ng-show="SignupForm.username.$error.required && !SignupForm.username.$pristine" class="help-block">Name is required</span>
+							  	</div>
+							  	<div class="form-group">
+							  		<label>Enter your password</label>
+								    <input type="password" ng-model="SignupPassword" class="form-control" name="password" required>
+								    <span ng-show="SignupForm.password.$error.required && !SignupForm.password.$pristine" class="help-block">
+								    	Password is required
+								    </span>
+							  	</div>
+							  	<button type="submit" ng-click="Signup();" class="btn btn-default" ng-disabled="SignupForm.$invalid">Sign Up</button>
+							</form>
+						</div>
+			      	</div>
+			    </div>
+			</div>
+		</div>
+	</body>
+</html>

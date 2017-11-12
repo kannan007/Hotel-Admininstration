@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head ng-app="MyApp">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+<body ng-controller="PostsController">
+	<nav class="navbar navbar-default">
+  		<div class="container-fluid">
+    		<div class="navbar-header">
+      			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+      			</button>
+    		</div>
+    		<div class="collapse navbar-collapse" id="myNavbar">
+    			    <ul class="nav navbar-nav">
+				    	<li><a ui-sref="Posts">Home</a></li>
+				    </ul>
+		    	<ul class="nav navbar-nav navbar-right">
+		    		<li><a ui-sref="Uploadposts">Edit Restuarant Details</a></li>
+		    		<li><a ui-sref="Uploaddishes">Add Dish</a></li>
+		        	<li>
+		        		<a href="#" ng-click="Logout()"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>Logout</a>
+						<!--<button id="logoutbutton" type="button" ng-click="Logout();" class="btn btn-default logout-button">
+						<span><i class="fa fa-sign-out" aria-hidden="true"></i></span>Logout</button>-->
+					</li>
+		      	</ul>
+    		</div>
+  		</div>
+	</nav>
+</body>
+</html>
